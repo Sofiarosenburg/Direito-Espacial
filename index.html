@@ -1,108 +1,66 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Direito Espacial - Tratados e Curiosidades</title>
-  <link rel="stylesheet" href="estilo.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Direito Espacial</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-  <!-- Cabeçalho do site -->
+  <!-- Cabeçalho principal -->
   <header>
     <h1>Direito Espacial</h1>
     <p>Um olhar divertido sobre as leis que regem o espaço sideral</p>
   </header>
 
-  <!-- Seção de introdução -->
-  <section class="introducao-conteudo">
-    <img src="img/espaco-intro.png" alt="Imagem ilustrando o espaço" class="imagem-introducao">
-    <p>
-      O direito espacial é um ramo do direito internacional que regula atividades relacionadas à exploração e uso do espaço sideral. 
-      Ele surgiu durante a corrida espacial e, até hoje, busca equilibrar o avanço tecnológico com a preservação e o uso pacífico do espaço.
-    </p>
+  <!-- Imagem ilustrativa -->
+  <section class="imagem">
+    <img src="espaco.jpg" alt="Imagem ilustrando o espaço">
   </section>
 
-  <!-- Seção com a linha do tempo -->
-  <section id="container-linha-tempo">
-    <h2>Linha do Tempo</h2>
-
-    <div id="rotulo-clique">Clique para ver os detalhes</div>
-
-    <div id="botoes-tratado" class="botoes-tratado">
-      <button onclick="alternarTratado('tratado-outer-space')">Tratado do Espaço Exterior (1967)</button>
-      <button onclick="alternarTratado('tratado-rescue')">Acordo de Salvamento (1968)</button>
-      <button onclick="alternarTratado('tratado-liability')">Convenção de Responsabilidade (1972)</button>
-      <button onclick="alternarTratado('tratado-registration')">Convenção de Registro (1976)</button>
-      <button onclick="alternarTratado('tratado-moon')">Acordo da Lua (1984)</button>
-    </div>
-
-    <!-- Bloco de conteúdo dos tratados -->
-    <div class="bloco-tratado">
-      <div id="tratado-outer-space" class="conteudo-tratado oculto">
-        <h3>Tratado do Espaço Exterior (1967)</h3>
-        <p>Define que o espaço não pode ser apropriado por nenhum país e deve ser usado apenas para fins pacíficos.</p>
-      </div>
-
-      <div id="tratado-rescue" class="conteudo-tratado oculto">
-        <h3>Acordo de Salvamento (1968)</h3>
-        <p>Estabelece que astronautas em perigo devem ser ajudados e devolvidos ao país de origem.</p>
-      </div>
-
-      <div id="tratado-liability" class="conteudo-tratado oculto">
-        <h3>Convenção de Responsabilidade (1972)</h3>
-        <p>Define que o país é responsável por danos causados por seus objetos espaciais.</p>
-      </div>
-
-      <div id="tratado-registration" class="conteudo-tratado oculto">
-        <h3>Convenção de Registro (1976)</h3>
-        <p>Cria um registro global de objetos lançados no espaço.</p>
-      </div>
-
-      <div id="tratado-moon" class="conteudo-tratado oculto">
-        <h3>Acordo da Lua (1984)</h3>
-        <p>Propõe que a Lua e seus recursos sejam patrimônio comum da humanidade.</p>
-      </div>
-    </div>
+  <!-- Introdução -->
+  <section class="intro">
+    <p>O direito espacial é um ramo do direito internacional que regula atividades relacionadas à exploração e uso do espaço sideral. Ele surgiu durante a corrida espacial e, até hoje, busca equilibrar o avanço tecnológico com a preservação e o uso pacífico do espaço.</p>
   </section>
 
-  <!-- Seção interativa com o controle de ano -->
-  <section id="secao-controle">
-    <h2>Evolução dos Satélites e Destroços</h2>
+  <!-- Linha do tempo de tratados -->
+  <section class="linha-do-tempo">
+    <h2>Principais Tratados Espaciais</h2>
+    <p>Clique para ver detalhes</p>
 
-    <div id="container-controle">
-      <input type="range" id="controle-ano" min="1960" max="2030" value="1960">
-      <div id="rotulo-ano">Ano: <span id="valor-ano">1960</span></div>
+    <!-- Botões para interagir -->
+    <div class="botoes">
+      <button onclick="mostrar('tratado1967')">Tratado do Espaço Exterior</button>
+      <button onclick="mostrar('acordo1968')">Acordo de Salvamento</button>
+      <button onclick="mostrar('convencao1972')">Convenção de Responsabilidade</button>
+      <button onclick="mostrar('convencao1976')">Convenção de Registro</button>
+      <button onclick="mostrar('acordo1984')">Acordo da Lua</button>
     </div>
 
-    <div id="painel-info">
-      <p>Satélites ativos: <span id="contagem-satelites">50</span></p>
-      <p>Destroços espaciais: <span id="contagem-destrocos">100</span></p>
+    <!-- Caixas de texto com as descrições -->
+    <div id="tratado1967" class="descricao">
+      <h3>Tratado do Espaço Exterior (1967)</h3>
+      <p>Define que o espaço não pode ser apropriado por nenhum país e deve ser usado apenas para fins pacíficos.</p>
     </div>
 
-    <img src="img/satelite-linha-tempo.png" alt="Satélite orbitando a Terra" class="imagem-linha-tempo">
-  </section>
+    <div id="acordo1968" class="descricao">
+      <h3>Acordo de Salvamento (1968)</h3>
+      <p>Estabelece que astronautas em perigo devem ser ajudados e devolvidos ao país de origem.</p>
+    </div>
 
-  <!-- Seção final com curiosidades -->
-  <section id="secao-curiosidades">
-    <h2>Curiosidades Espaciais</h2>
-    <div class="container-cartoes">
-      <div class="cartao">
-        <div class="frente-cartao">Quem foi o primeiro animal no espaço?</div>
-        <div class="verso-cartao">A cachorra Laika, lançada pela URSS em 1957.</div>
-      </div>
+    <div id="convencao1972" class="descricao">
+      <h3>Convenção de Responsabilidade (1972)</h3>
+      <p>Determina que países são responsáveis por danos causados por seus objetos espaciais.</p>
+    </div>
 
-      <div class="cartao">
-        <div class="frente-cartao">O que é lixo espacial?</div>
-        <div class="verso-cartao">São pedaços de satélites e foguetes que ficaram em órbita.</div>
-      </div>
+    <div id="convencao1976" class="descricao">
+      <h3>Convenção de Registro (1976)</h3>
+      <p>Obriga os países a registrarem seus objetos espaciais lançados em órbita ou além dela.</p>
+    </div>
 
-      <div class="cartao">
-        <div class="frente-cartao">Existe lei sobre mineração de asteroides?</div>
-        <div class="verso-cartao">Ainda é um debate, mas países como os EUA já criaram normas próprias.</div>
-      </div>
+    <div id="acordo1984" class="descricao">
+      <h3>Acordo da Lua (1984)</h3>
+      <p>Regula o uso dos recursos naturais da Lua, reforçando que ela pertence a toda a humanidade.</p>
     </div>
   </section>
 
