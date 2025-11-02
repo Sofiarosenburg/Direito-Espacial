@@ -9,32 +9,31 @@
 </head>
 
 <body>
-
-  <!-- acho que esse título ficou bonito, talvez centralizar melhor dps -->
-  <header>
+  <!-- acho que esse título ficou legal -->
+  <header> 
     <h1>Direito Espacial e seus Tratados</h1>
-    <p>Entenda como o espaço sideral também tem leis (sim, até lá em cima tem regras )</p>
+    <p>Entenda como até o espaço sideral tem regras (sim, até lá em cima tem lei!)</p>
   </header>
 
+  <!-- introdução -->
   <section class="introducao">
     <div class="conteudo-intro">
-      <!-- trocar a img dps pq essa ta meio feia kkk -->
+      <!-- lembrar de trocar a imagem se achar uma melhor -->
       <img src="img/satelite1.jpg" alt="Satélite no espaço" class="imagem-introducao">
       <p>
-        O Direito Espacial é o ramo que regula as atividades humanas fora da Terra.
-        Ele começou lá na época da Guerra Fria, quando os países perceberam que seria bom
-        ter umas regras pra ninguém sair atirando foguete por aí sem limite.
+        O Direito Espacial é o ramo do direito que regula as atividades humanas fora da Terra.
+        Ele surgiu no contexto da Guerra Fria, quando os países começaram a lançar satélites e ficou claro que
+        seria preciso criar regras pra evitar conflitos lá em cima.
       </p>
     </div>
   </section>
 
-  <!-- TRATADOS PRINCIPAIS -->
+  <!-- tratados espaciais -->
   <section id="tratados">
     <h2>Tratados Espaciais Importantes</h2>
-    <p id="texto-ver-detalhes">clique nos botões pra abrir o conteúdo </p>
+    <p id="texto-ver-detalhes">Clique nos botões pra ver o conteúdo de cada tratado</p>
 
     <div class="botoes-tratados">
-      <!-- podia mudar a cor dps, ta meio apagado -->
       <button data-tratado="tratado-espaco">Tratado do Espaço Exterior (1967)</button>
       <button data-tratado="tratado-lua">Acordo da Lua (1979)</button>
       <button data-tratado="tratado-responsabilidade">Convenção de Responsabilidade (1972)</button>
@@ -44,81 +43,76 @@
     <div id="tratado-espaco" class="conteudo-tratado escondido">
       <h3>Tratado do Espaço Exterior (1967)</h3>
       <p>
-        Esse é o principal tratado. Ele define o espaço como um bem de toda a humanidade
-        e proíbe o uso de armas nucleares fora da Terra. Nenhum país pode “ter” a Lua ou
-        qualquer outro planeta (triste pra quem sonhava ser dono de Marte kk).
+        É o principal acordo do Direito Espacial. Define que o espaço é patrimônio de toda a humanidade
+        e proíbe o uso militar e a posse de corpos celestes. Ou seja, ninguém pode “comprar” a Lua.
       </p>
     </div>
 
     <div id="tratado-lua" class="conteudo-tratado escondido">
       <h3>Acordo da Lua (1979)</h3>
       <p>
-        Esse acordo tenta detalhar como a Lua deve ser usada, mas quase ninguém assinou ele 
-        A ideia é que os recursos lunares sejam pra benefício de todos, não só pra lucro.
+        Tenta detalhar o uso da Lua e de outros corpos celestes. Diz que seus recursos devem beneficiar toda a humanidade,
+        mas quase nenhum país aderiu (nem EUA nem Rússia assinaram).
       </p>
     </div>
 
     <div id="tratado-responsabilidade" class="conteudo-tratado escondido">
       <h3>Convenção de Responsabilidade (1972)</h3>
       <p>
-        Define que o país que lançou um objeto é responsável por qualquer dano que ele causar.
-        Basicamente: “lançou o foguete, agora aguenta as consequências”.
+        Define que um país é responsável por qualquer dano causado por seus objetos espaciais.
+        Basicamente: “você lançou, você paga”.
       </p>
     </div>
 
     <div id="tratado-registro" class="conteudo-tratado escondido">
       <h3>Convenção de Registro (1975)</h3>
       <p>
-        Obriga os países a registrarem oficialmente os objetos lançados no espaço.
-        É meio burocrático, mas ajuda a identificar de quem é cada coisa voando lá em cima.
+        Obriga os países a manterem um registro oficial de tudo o que lançam ao espaço,
+        com dados sobre órbita, finalidade e dono do objeto.
       </p>
     </div>
   </section>
 
-  <!-- LINHA DO TEMPO -->
+  <!-- linha do tempo -->
   <section id="linha-do-tempo">
     <h2>Linha do Tempo Espacial</h2>
-    <p>Deslize o controle pra ver os acontecimentos por ano</p>
+    <p>Deslize o controle pra ver marcos importantes da história espacial</p>
 
     <div id="controle-linha">
-      <!-- acho que vou mudar o range dps -->
-      <input type="range" id="controle-ano" min="1957" max="2035" value="1967">
+      <input type="range" id="controle-ano" min="1957" max="2025" value="1967">
       <div id="rotulo-ano">Ano: <span id="valor-ano">1967</span></div>
     </div>
 
     <div id="painel-info">
-      <p id="texto-info">URSS lança o Sputnik, o primeiro satélite artificial da Terra.</p>
+      <p>URSS lança o Sputnik 1 — o primeiro satélite artificial da Terra.</p>
     </div>
   </section>
 
-  <!-- CURIOSIDADES -->
+  <!-- curiosidades -->
   <section id="curiosidades">
     <h2>Curiosidades Espaciais</h2>
     <div class="container-cartoes">
       <div class="cartao">
-        <div class="frente-cartao">O primeiro tratado foi em 1967!</div>
-        <div class="verso-cartao">Assinado pelos EUA, URSS e Reino Unido, no auge da Guerra Fria.</div>
+        <div class="frente-cartao">O primeiro tratado espacial foi em 1967!</div>
+        <div class="verso-cartao">Assinado durante a Guerra Fria por EUA, URSS e Reino Unido.</div>
       </div>
 
       <div class="cartao">
         <div class="frente-cartao">A Lua tem dono?</div>
-        <div class="verso-cartao">Nenhum país pode “ter” a Lua. Só visitar mesmo </div>
+        <div class="verso-cartao">Não! Nenhum país pode reivindicar território lá. Só plantar bandeira mesmo 🌕</div>
       </div>
 
       <div class="cartao">
         <div class="frente-cartao">Quantos satélites orbitam a Terra?</div>
-        <div class="verso-cartao">Mais de 10 mil ativos! E muuuito lixo junto </div>
+        <div class="verso-cartao">Mais de 10 mil — e o número só cresce!</div>
       </div>
     </div>
   </section>
 
-  <!-- RODAPÉ -->
   <footer id="rodape">
-    <p>Feito pra fins escolares</p>
+    <p>Site criado para fins educativos — Direito Espacial</p>
   </footer>
 
-  <!-- script aqui embaixo senão buga -->
   <script src="script.js"></script>
-
 </body>
 </html>
