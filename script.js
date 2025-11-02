@@ -1,74 +1,77 @@
 // script.js
-const yearSlider = document.getElementById('year-slider');
-const yearValue = document.getElementById('year-value');
-const satelliteCount = document.getElementById('satellite-count');
-const debrisCount = document.getElementById('debris-count');
+// tentei deixar o código mais organizado, mas ainda tem uns detalhes pra revisar depois
 
-const treatyButtons = document.querySelectorAll('.treaty-buttons button');
-const treatyContents = document.querySelectorAll('.treaty-content');
+// ---- botoes ---- //
 
-const cards = document.querySelectorAll('.card');
+const botoes = document.querySelectorAll('.botoes-tratados button') ;
+const tratados = document.querySelectorAll ('.conteudo-tratado');
 
-function getSatelliteCount(year) {
-  if (year < 1990) {
-    return Math.floor(50 + (year - 1960) * 15);
-  } else if (year < 2010) {
-    return Math.floor(500 + (year - 1990) * 175);
-  } else if (year <= 2025) {
-    return Math.floor(4000 + (year - 2010) * 600);
+//mostrar um tratado de cada vez
+ botoes.forEach((botao) => {
+   
+  botao.addEventListener('click', () =>   {
+    const idTratado = botao.getAttribute ('data-tratado');
+    
+    tratados.forEach((t) => {
+      if (t.id === idTratado) {
+        t.classList.toggle('escondido'); // alterna visibilidade
+      } else {
+        t.classList.add('escondido');
+      
+      }
+     });
+  });
+ });
+
+// ---- tinha do tempo ---- // 
+
+ const controleAno = document.getElementById('controle-ano') ;
+const rotuloAno = document.getElementById('rotulo-ano');
+const painelInfo = document.getElementById('painel-info');
+
+  //  lista de marcos históricos (ver as datas) 
+const eventosEspaciais  =
+{
+  1957: 'URSS lança o Sputnik, o primeiro satélite artificial da Terra.',
+  1961: 'Yuri Gagarin torna-se o primeiro humano a viajar ao espaço.',
+  1967: 'Tratado do Espaço Exterior é assinado, base do Direito Espacial.',
+  1979: 'Convenção da Lua define regras sobre recursos lunares.',
+  1984: 'Acordo sobre atividades de estados na Lua (poucos países assinaram).',
+  1998: 'Estação Espacial Internacional começa a ser montada.',
+  2015: 'EUA aprovam lei sobre mineração de asteroides.'
+};
+
+// valor inicial (usei 1967 porque é o mais importante)
+
+controleAno.value  = 1967;
+rotuloAno.textContent = 'Ano: 1967'  ;
+ painelInfo.textContent  = eventosEspaciais[1967];
+
+// atualiza o painel quando move
+
+    controleAno.addEventListener ('input', function() {
+  const ano = this.value;
+  rotuloAno.textContent = 'Ano: ' + ano;
+  if (eventosEspaciais[ano]) {
+    painelInfo.textContent = eventosEspaciais[ano];
   } else {
-    return Math.floor(13100 + (year - 2025) * 1000);
+    
+    painelInfo.textContent = 'Sem registro importante nesse ano (acho)';
   }
-}
-
-function getDebrisCount(year) {
-  if (year < 1990) {
-    return Math.floor(100 + (year - 1960) * 30);
-  } else if (year < 2010) {
-    return Math.floor(1000 + (year - 1990) * 500);
-  } else if (year <= 2025) {
-    let yearsAfter2010 = year - 2010;
-    return Math.floor(11000 * Math.pow(1.08, yearsAfter2010));
-  } else {
-    let yearsAfter2025 = year - 2025;
-    return Math.floor(36000 + yearsAfter2025 * 500);
-  }
-}
-
-yearSlider.addEventListener('input', () => {
-  const year = +yearSlider.value;
-  yearValue.textContent = year;
-  satelliteCount.textContent = getSatelliteCount(year);
-  debrisCount.textContent = getDebrisCount(year);
 });
 
-function toggleTreaty(treatyId) {
-  treatyContents.forEach(content => {
-    if (content.id === treatyId) {
-      content.classList.toggle('hidden');
-    } else {
-      content.classList.add('hidden');
-    }
+// ---- curiosidade  ---- //
+
+const cartoes  = document.querySelectorAll('.cartao');
+
+// virar o cartão quando clicar
+cartoes.forEach((cartao) => {
+  cartao.addEventListener('click', () => {
+    cartao.classList.toggle('virado');
+  
   });
-}
-
-treatyButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const treatyId = button.getAttribute('data-treaty');
-    toggleTreaty(treatyId);
-  });
+  
 });
 
-// Habilita o flip das cartas
-cards.forEach(card => {
-  card.addEventListener('click', () => {
-    card.classList.toggle('flipped');
-  });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  const year = +yearSlider.value;
-  yearValue.textContent = year;
-  satelliteCount.textContent = getSatelliteCount(year);
-  debrisCount.textContent = getDebrisCount(year);
-});
+// às vezes o botão de tratado some rápido demais, talvez mexer nisso depois
+// mas tá bom assim por enquanto
