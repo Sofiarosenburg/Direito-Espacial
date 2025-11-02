@@ -1,15 +1,17 @@
 /* -------- RESET E BASE -------- */
+/* Zera margens e espaçamentos pra começar tudo limpinho */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Define o estilo básico da página: fundo escuro e texto claro */
 html, body {
   height: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0a192f;
-  color: #e6f1ff;
+  background-color: #0a192f; /* Azul bem escuro tipo "noite" */
+  color: #e6f1ff; /* Branco azulado que contrasta bem */
   line-height: 1.6;
   padding: 20px;
   overflow-y: auto;
@@ -17,22 +19,26 @@ html, body {
 }
 
 /* -------- CABEÇALHO -------- */
+/* Centraliza e separa o topo do resto do conteúdo */
 header {
   text-align: center;
   margin-bottom: 40px;
 }
 
+/* Título principal grandão e com cor suave */
 header h1 {
   font-size: 2.5rem;
   color: #90cfcf;
 }
 
+/* Subtítulo mais discreto */
 header p {
   color: #8892b0;
   font-size: 1.2rem;
 }
 
 /* -------- TÍTULOS -------- */
+/* Títulos das seções bem destacados */
 h2 {
   font-size: 2rem;
   color: #90cfcf;
@@ -41,6 +47,7 @@ h2 {
   position: relative;
 }
 
+/* Barrinha decorativa acima dos títulos */
 h2::before {
   content: "";
   display: block;
@@ -51,6 +58,7 @@ h2::before {
   border-radius: 2px;
 }
 
+/* Subtítulos (tipo h3) também centralizados */
 h3 {
   color: #e6f1ff;
   font-size: 1.5rem;
@@ -59,6 +67,7 @@ h3 {
 }
 
 /* -------- INTRODUÇÃO -------- */
+/* Parte de introdução com imagem e texto lado a lado */
 .intro-content {
   display: flex;
   flex-direction: row;
@@ -69,16 +78,18 @@ h3 {
   text-align: left;
 }
 
+/* Imagem da introdução (e também usada em falhas espaciais) */
 .intro-image,
 .failures-image {
   width: 300px;
   height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(100, 255, 218, 0.2);
+  border-radius: 12px; /* Cantinhos arredondados */
+  box-shadow: 0 4px 20px rgba(100, 255, 218, 0.2); /* Sombrinha bonita */
   flex-shrink: 0;
   margin: 0;
 }
 
+/* Texto da introdução */
 .intro-content p {
   flex: 1;
   font-size: 1.1rem;
@@ -89,6 +100,7 @@ h3 {
 }
 
 /* -------- ANIMAÇÕES -------- */
+/* Efeito de aparecer subindo */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -100,6 +112,7 @@ h3 {
   }
 }
 
+/* Efeito simples de aparecer suavemente */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -112,6 +125,7 @@ h3 {
 }
 
 /* -------- TRATADOS INTERATIVOS -------- */
+/* Botões dos tratados (tipo “Outer Space Treaty”) */
 .treaty-buttons {
   display: flex;
   justify-content: center;
@@ -120,6 +134,7 @@ h3 {
   margin: 30px 0;
 }
 
+/* Aparência dos botões */
 .treaty-buttons button {
   background-color: #3a3758;
   color: #ffffff;
@@ -133,11 +148,13 @@ h3 {
   transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
+/* Efeito ao passar o mouse (hover) */
 .treaty-buttons button:hover {
   background-color: #4a4478;
   transform: scale(1.05);
 }
 
+/* Texto de instrução (“clique para ver detalhes”) */
 #click-to-see-details {
   text-align: center;
   font-weight: bold;
@@ -146,6 +163,7 @@ h3 {
   color: white;
 }
 
+/* Caixinha que mostra o conteúdo de cada tratado */
 .treaty-content {
   background-color: #2a3448;
   color: #e6f1ff;
@@ -156,6 +174,7 @@ h3 {
   animation: fadeIn 0.4s ease;
 }
 
+/* Título dentro da caixinha */
 .treaty-title {
   text-align: center;
   font-weight: bold;
@@ -164,11 +183,13 @@ h3 {
   margin-bottom: 0.5rem;
 }
 
+/* Classe usada pra esconder o conteúdo até clicar */
 .hidden {
   display: none;
 }
 
 /* -------- FUN FACTS (CARDS) -------- */
+/* Container dos cards interativos */
 .card-container {
   display: flex;
   justify-content: center;
@@ -177,6 +198,7 @@ h3 {
   margin-top: 30px;
 }
 
+/* Cada card com efeito 3D pra virar */
 .card {
   width: 200px;
   height: 120px;
@@ -187,6 +209,7 @@ h3 {
   transition: transform 0.6s ease;
 }
 
+/* Frente e verso dos cards */
 .card-front,
 .card-back {
   width: 100%;
@@ -203,22 +226,26 @@ h3 {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* Lado da frente */
 .card-front {
   background-color: #3f3d56;
   color: #ffffff;
 }
 
+/* Lado de trás */
 .card-back {
   background-color: #90cfcf;
   color: #0a192f;
   transform: rotateY(180deg);
 }
 
+/* Efeito de virada */
 .card.flipped {
   transform: rotateY(180deg);
 }
 
 /* -------- PARÁGRAFOS -------- */
+/* Parágrafos gerais do site */
 p {
   margin-top: 10px;
   font-size: 1.05rem;
@@ -229,10 +256,12 @@ p {
 }
 
 /* -------- SEÇÕES -------- */
+/* Espaçamento entre cada seção */
 section {
   margin-bottom: 60px;
 }
 
+/* Todas as imagens (menos da intro) centralizadas e com largura máxima */
 section img:not(.intro-image) {
   display: block;
   margin: 0 auto 20px auto;
@@ -241,11 +270,13 @@ section img:not(.intro-image) {
 }
 
 /* -------- TIMELINE -------- */
+/* Parte da linha do tempo interativa */
 #timeline-section {
   text-align: center;
   margin: 40px auto;
 }
 
+/* Barra de tempo (slider dos anos) */
 #year-slider {
   width: 100%;
   height: 8px;
@@ -257,6 +288,7 @@ section img:not(.intro-image) {
   margin-top: 8px;
 }
 
+/* Bolinha do controle no Chrome */
 #year-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 20px;
@@ -268,6 +300,7 @@ section img:not(.intro-image) {
   transition: background 0.2s ease;
 }
 
+/* Bolinha do controle no Firefox */
 #year-slider::-moz-range-thumb {
   width: 20px;
   height: 20px;
@@ -277,6 +310,7 @@ section img:not(.intro-image) {
   cursor: pointer;
 }
 
+/* Texto que mostra o ano atual */
 #year-label {
   margin-top: 10px;
   font-size: 18px;
@@ -284,6 +318,7 @@ section img:not(.intro-image) {
   font-weight: bold;
 }
 
+/* Painel que mostra as informações do evento no tempo */
 #info-panel {
   position: relative;
   margin: 20px auto;
@@ -296,10 +331,12 @@ section img:not(.intro-image) {
   color: white;
 }
 
+/* Ajuste do texto dentro do painel */
 #info-panel p {
   margin: 5px 0;
 }
 
+/* Imagem pequena usada na timeline */
 .timeline-image-small {
   display: block;
   margin: 15px auto 25px auto;
