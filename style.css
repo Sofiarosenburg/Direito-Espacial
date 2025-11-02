@@ -95,7 +95,6 @@ h3 {
 }
 
 /* -------- ANIMAÇÕES -------- */
-/* Efeitos visuais para entrada de seções */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -146,7 +145,6 @@ h3 {
   transform: scale(1.05);
 }
 
-/* Texto “clique para ver detalhes” */
 #clique-para-ver-detalhes {
   text-align: center;
   font-weight: bold;
@@ -155,7 +153,6 @@ h3 {
   color: white;
 }
 
-/* Caixa que mostra o texto de cada tratado */
 .conteudo-tratado {
   background-color: #2a3448;
   color: #e6f1ff;
@@ -166,7 +163,6 @@ h3 {
   animation: fadeIn 0.4s ease;
 }
 
-/* Título dentro da caixa de tratado */
 .titulo-tratado {
   text-align: center;
   font-weight: bold;
@@ -175,13 +171,11 @@ h3 {
   margin-bottom: 0.5rem;
 }
 
-/* Esconde conteúdo até ser clicado */
 .escondido {
   display: none;
 }
 
 /* -------- CURIOSIDADES (CARTÕES) -------- */
-/* Cartões que viram quando clicados */
 .container-cartoes {
   display: flex;
   justify-content: center;
@@ -190,7 +184,6 @@ h3 {
   margin-top: 30px;
 }
 
-/* Estrutura do cartão */
 .cartao {
   width: 200px;
   height: 120px;
@@ -201,7 +194,6 @@ h3 {
   transition: transform 0.6s ease;
 }
 
-/* Frente e verso dos cartões */
 .frente-cartao,
 .verso-cartao {
   width: 100%;
@@ -234,7 +226,6 @@ h3 {
 }
 
 /* -------- PARÁGRAFOS -------- */
-/* Texto padrão do corpo */
 p {
   margin-top: 10px;
   font-size: 1.05rem;
@@ -245,7 +236,6 @@ p {
 }
 
 /* -------- SEÇÕES -------- */
-/* Espaçamento entre seções e imagens */
 section {
   margin-bottom: 60px;
 }
@@ -257,8 +247,7 @@ section img:not(.imagem-introducao) {
   height: auto;
 }
 
-/* -------- LINHA DO TEMPO -------- */
-/* Controle da parte de satélites e detritos */
+/* -------- TIMELINE -------- */
 #secao-linha-do-tempo {
   text-align: center;
   margin: 40px auto;
@@ -295,7 +284,6 @@ section img:not(.imagem-introducao) {
   cursor: pointer;
 }
 
-/* Exibe o ano atual */
 #rotulo-ano {
   margin-top: 10px;
   font-size: 18px;
@@ -303,7 +291,6 @@ section img:not(.imagem-introducao) {
   font-weight: bold;
 }
 
-/* Caixa com contagem de satélites e detritos */
 #painel-info {
   position: relative;
   margin: 20px auto;
@@ -320,7 +307,6 @@ section img:not(.imagem-introducao) {
   margin: 5px 0;
 }
 
-/* Imagem pequena da linha do tempo */
 .imagem-linha-do-tempo-pequena {
   display: block;
   margin: 15px auto 25px auto;
