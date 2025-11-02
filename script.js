@@ -1,54 +1,76 @@
-// ---------- ELEMENTOS ----------
-const yearSlider = document.getElementById('year-slider');
-const yearValue = document.getElementById('year-value');
-const satelliteCount = document.getElementById('satellite-count');
-const debrisCount = document.getElementById('debris-count');
-const treatyButtons = document.querySelectorAll('.treaty-buttons button');
-const treatyContents = document.querySelectorAll('.treaty-content');
-const cards = document.querySelectorAll('.card');
+// script.js
 
-// ---------- FUNÇÕES ----------
-function getSatelliteCount(year) {
-  if (year < 1990) return Math.floor(50 + (year - 1960) * 15);
-  if (year < 2010) return Math.floor(500 + (year - 1990) * 175);
-  if (year <= 2025) return Math.floor(4000 + (year - 2010) * 600);
-  return Math.floor(13100 + (year - 2025) * 1000);
+// Aqui a gente pega os elementos principais do site
+const controleAno = document.getElementById('controle-ano');
+const valorAno = document.getElementById('valor-ano');
+const contagemSatelites = document.getElementById('contagem-satelites');
+const contagemDetritos = document.getElementById('contagem-detritos');
+
+const botoesTratado = document.querySelectorAll('.botoes-tratado button');
+const conteudosTratado = document.querySelectorAll('.conteudo-tratado');
+const cartoes = document.querySelectorAll('.cartao');
+
+
+//funções pra calcular número de satélites e detritos com base no ano escolhido
+function obterContagemSatelites(ano) {
+  if (ano < 1990) {
+    return Math.floor(50 + (ano - 1960) * 15);
+  } else if (ano < 2010) {
+    return Math.floor(500 + (ano - 1990) * 175);
+  } else if (ano <= 2025) {
+    return Math.floor(4000 + (ano - 2010) * 600);
+  } else {
+    return Math.floor(13100 + (ano - 2025) * 1000);
+  }
 }
 
-function getDebrisCount(year) {
-  if (year < 1990) return Math.floor(100 + (year - 1960) * 30);
-  if (year < 2010) return Math.floor(1000 + (year - 1990) * 500);
-  if (year <= 2025) return Math.floor(11000 * Math.pow(1.08, year - 2010));
-  return Math.floor(36000 + (year - 2025) * 500);
+function obterContagemDetritos(ano) {
+  if (ano < 1990) {
+    return Math.floor(100 + (ano - 1960) * 30);
+  } else if (ano < 2010) {
+    return Math.floor(1000 + (ano - 1990) * 500);
+  } else if (ano <= 2025) {
+    let anosDepois2010 = ano - 2010;
+    return Math.floor(11000 * Math.pow(1.08, anosDepois2010));
+  } else {
+    let anosDepois2025 = ano - 2025;
+    return Math.floor(36000 + anosDepois2025 * 500);
+  }
 }
 
-// ---------- EVENTOS ----------
-yearSlider.addEventListener('input', () => {
-  const year = +yearSlider.value;
-  yearValue.textContent = year;
-  satelliteCount.textContent = getSatelliteCount(year);
-  debrisCount.textContent = getDebrisCount(year);
+
+// atualiza os números quando o usuário mexe no controle de ano
+controleAno.addEventListener('input', () => {
+  const ano = +controleAno.value;
+  valorAno.textContent = ano;
+  contagemSatelites.textContent = obterContagemSatelites(ano);
+  contagemDetritos.textContent = obterContagemDetritos(ano);
 });
 
-function toggleTreaty(treatyId) {
-  treatyContents.forEach(content => {
-    if (content.id === treatyId) {
-      content.classList.toggle('hidden');
+
+// Alterna os tratados (mostra/oculta o texto de cada um)
+function alternarTratado(idTratado) {
+  conteudosTratado.forEach(conteudo => {
+    if (conteudo.id === idTratado) {
+      conteudo.classList.toggle('escondido');
     } else {
-      content.classList.add('hidden');
+      conteudo.classList.add('escondido');
     }
   });
 }
 
-treatyButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    toggleTreaty(button.getAttribute('data-treaty'));
+// adiciona evento de clique pros botões dos tratados
+botoesTratado.forEach(botao => {
+  botao.addEventListener('click', () => {
+    const id = botao.getAttribute('data-tratado');
+    alternarTratado(id);
   });
 });
 
-// ---------- CARDS FLIP ----------
-cards.forEach(card => {
-  card.addEventListener('click', () => {
-    card.classList.toggle('flipped');
+
+//cartões de curiosidades (viram quando clica)
+cartoes.forEach(cartao => {
+  cartao.addEventListener('click', () => {
+    cartao.classList.toggle('virado');
   });
 });
