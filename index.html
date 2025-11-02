@@ -8,6 +8,7 @@
 </head>
 
 <body>
+  <!-- cabeçalho principal do site, com o título e uma introduçãozinha -->
   <header>
     <h1>Direito Espacial: Entendendo as Regras do Espaço Exterior</h1>
     <p>
@@ -15,10 +16,11 @@
     </p>
   </header>
 
-  <!-- Introdução -->
+  <!-- parte introdutória pra explicar o que é o tal do Direito Espacial -->
   <section id="intro">
     <h2>O que é Direito Espacial?</h2>
 
+    <!-- bloco com imagem e texto explicando o conceito -->
     <div class="intro-content">
       <img src="what is space law.jpg" alt="Space Law Treaties and Principles" class="intro-image" />
       <p>
@@ -26,6 +28,7 @@
       </p>
     </div>
 
+    <!-- explicando de forma simples como o direito espacial funciona -->
     <h3>Como ele funciona?</h3>
     <div class="intro-content">
       <img src="how does it work.jpg" alt="International treaties" class="intro-image" />
@@ -34,6 +37,7 @@
       </p>
     </div>
 
+    <!-- aqui fala sobre a importância desse direito -->
     <h3>Por que é importante?</h3>
     <div class="intro-content">
       <img src="why is it important.webp" alt="Debris from Satellite Destroyed by India" class="intro-image" />
@@ -42,6 +46,7 @@
       </p>
     </div>
 
+    <!-- e aqui mostra o que já foi conquistado até agora -->
     <h3>O que ele conquistou até hoje?</h3>
     <div class="intro-content">
       <img src="what has it achieved so far.jpg" alt="Mining in Space" class="intro-image" />
@@ -51,11 +56,12 @@
     </div>
   </section>
 
-  <!-- Tratados -->
+  <!-- parte que fala dos tratados mais importantes -->
   <section id="treaties">
     <h2>Principais tratados espaciais</h2>
     <div id="click-to-see-details">clique para ver detalhes</div>
 
+    <!-- botões pra o usuário escolher qual tratado quer ver -->
     <div class="treaty-buttons">
       <button data-treaty="outerspace">Tratado do Espaço Exterior</button>
       <button data-treaty="rescue">Acordo de Resgate</button>
@@ -64,6 +70,7 @@
       <button data-treaty="moon">Acordo da Lua</button>
     </div>
 
+    <!-- o conteúdo de cada tratado aparece aqui quando clicado -->
     <div id="outerspace" class="treaty-content hidden">
       <h3 class="treaty-title">Tratado do Espaço Exterior (1967)</h3>
       <p>O espaço deve ser utilizado para fins pacíficos. Nenhum país pode possuir a Lua ou outros corpos celestes. As armas nucleares são proibidas no espaço. Os Estados são internacionalmente responsáveis por todas as atividades espaciais.</p>
@@ -90,7 +97,7 @@
     </div>
   </section>
 
-  <!-- Falhas -->
+  <!-- parte que fala sobre as falhas e problemas do direito espacial -->
   <section id="failures">
     <h2>Falhas do Direito Espacial</h2>
     <p>
@@ -105,12 +112,13 @@
     <img src="failures.webp" alt="Failures of Space Law" class="failures-image" />
   </section>
 
-  <!-- Curiosidades -->
+  <!-- parte mais leve, com curiosidades (aquelas cartinhas interativas) -->
   <section id="fun-facts">
     <h2>Curiosidades sobre o Direito Espacial</h2>
     <div id="click-to-see-details">clique para ver detalhes</div>
 
     <div class="card-container">
+      <!-- cada card mostra uma curiosidade diferente -->
       <div class="card" tabindex="0">
         <div class="card-front">Tratado do Espaço Exterior</div>
         <div class="card-back">Assinado em 1967, durante a Guerra Fria, foi o primeiro acordo internacional sobre o espaço.</div>
@@ -128,33 +136,37 @@
     </div>
   </section>
 
-  <!-- Linha do tempo -->
+  <!-- parte final, com a linha do tempo mostrando o aumento dos satélites -->
   <section id="debris">
     <h2>Linha do tempo do crescimento de satélites e detritos</h2>
 
+    <!-- texto explicando o problema dos detritos espaciais -->
     <div class="timeline-section">
       <p>
         O número crescente de satélites e detritos espaciais é um sério desafio para o direito espacial. À medida que mais objetos preenchem a órbita da Terra, o risco de colisões aumenta, ameaçando os satélites dos quais dependemos para comunicação, navegação e ciência. Os tratados atuais, como o Tratado do Espaço Exterior, estão desatualizados e não oferecem regras claras para a remoção de detritos ou o tráfego de satélites. Isso cria incerteza jurídica e torna mais difícil gerenciar a sustentabilidade espacial a longo prazo. O direito espacial deve evoluir para lidar com essa nova realidade, antes que a órbita se torne muito congestionada ou perigosa para uso.
       </p>
     </div>
 
+    <!-- parte interativa da linha do tempo, com o slider de anos -->
     <section id="timeline-section" style="text-align:center; margin: 40px auto;">
       <img src="satellites.png" alt="Satellites and Debris" class="timeline-image-small" />
       <input type="range" id="year-slider" min="1960" max="2025" value="1960" step="1" />
       <div id="year-label">Ano: <span id="year-value">1960</span></div>
     </section>
 
+    <!-- painel que mostra os números (vai ser atualizado no JS) -->
     <div id="info-panel">
       <p>Satélites: <span id="satellite-count">0</span></p>
       <p>Detritos: <span id="debris-count">0</span></p>
     </div>
   </section>
 
-    <div class="end-section">
-      <h3>O espaço é vasto, assim como a necessidade de compreendê-lo e protegê-lo. Este é apenas o começo. Obrigada por explorá-lo comigo.</h3>
-    </div>
-  </section>
+  <!-- finalzinho do site, só pra encerrar bonitinho -->
+  <div class="end-section">
+    <h3>O espaço é vasto, assim como a necessidade de compreendê-lo e protegê-lo. Este é apenas o começo. Obrigada por explorá-lo comigo.</h3>
+  </div>
 
+  <!-- linkando o JavaScript que vai cuidar das interações -->
   <script src="script.js"></script>
 </body>
 </html>
