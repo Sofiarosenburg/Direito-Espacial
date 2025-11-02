@@ -1,5 +1,4 @@
 /* -------- RESET E BASE -------- */
-/* Remove margens e espaçamentos padrão e define a base do site */
 * {
   margin: 0;
   padding: 0;
@@ -18,7 +17,6 @@ html, body {
 }
 
 /* -------- CABEÇALHO -------- */
-/* Centraliza o título e a introdução */
 header {
   text-align: center;
   margin-bottom: 40px;
@@ -35,7 +33,6 @@ header p {
 }
 
 /* -------- TÍTULOS -------- */
-/* Estilo dos títulos das seções */
 h2 {
   font-size: 2rem;
   color: #90cfcf;
@@ -62,8 +59,7 @@ h3 {
 }
 
 /* -------- INTRODUÇÃO -------- */
-/* Layout da parte explicando o que é o Direito Espacial */
-.conteudo-introducao {
+.intro-content {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -73,9 +69,8 @@ h3 {
   text-align: left;
 }
 
-/* Imagens da introdução e falhas */
-.imagem-introducao,
-.imagem-falhas {
+.intro-image,
+.failures-image {
   width: 300px;
   height: auto;
   border-radius: 12px;
@@ -84,8 +79,7 @@ h3 {
   margin: 0;
 }
 
-/* Texto ao lado das imagens */
-.conteudo-introducao p {
+.intro-content p {
   flex: 1;
   font-size: 1.1rem;
   line-height: 1.5;
@@ -118,8 +112,7 @@ h3 {
 }
 
 /* -------- TRATADOS INTERATIVOS -------- */
-/* Botões que mostram os tratados */
-.botoes-tratados {
+.treaty-buttons {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -127,7 +120,7 @@ h3 {
   margin: 30px 0;
 }
 
-.botoes-tratados button {
+.treaty-buttons button {
   background-color: #3a3758;
   color: #ffffff;
   border: none;
@@ -140,12 +133,12 @@ h3 {
   transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
-.botoes-tratados button:hover {
+.treaty-buttons button:hover {
   background-color: #4a4478;
   transform: scale(1.05);
 }
 
-#clique-para-ver-detalhes {
+#click-to-see-details {
   text-align: center;
   font-weight: bold;
   font-size: 1.2rem;
@@ -153,7 +146,7 @@ h3 {
   color: white;
 }
 
-.conteudo-tratado {
+.treaty-content {
   background-color: #2a3448;
   color: #e6f1ff;
   padding: 15px 20px;
@@ -163,7 +156,7 @@ h3 {
   animation: fadeIn 0.4s ease;
 }
 
-.titulo-tratado {
+.treaty-title {
   text-align: center;
   font-weight: bold;
   font-size: 1.5rem;
@@ -171,12 +164,12 @@ h3 {
   margin-bottom: 0.5rem;
 }
 
-.escondido {
+.hidden {
   display: none;
 }
 
-/* -------- CURIOSIDADES (CARTÕES) -------- */
-.container-cartoes {
+/* -------- FUN FACTS (CARDS) -------- */
+.card-container {
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -184,7 +177,7 @@ h3 {
   margin-top: 30px;
 }
 
-.cartao {
+.card {
   width: 200px;
   height: 120px;
   perspective: 1000px;
@@ -194,8 +187,8 @@ h3 {
   transition: transform 0.6s ease;
 }
 
-.frente-cartao,
-.verso-cartao {
+.card-front,
+.card-back {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -210,18 +203,18 @@ h3 {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
-.frente-cartao {
+.card-front {
   background-color: #3f3d56;
   color: #ffffff;
 }
 
-.verso-cartao {
+.card-back {
   background-color: #90cfcf;
   color: #0a192f;
   transform: rotateY(180deg);
 }
 
-.cartao.virado {
+.card.flipped {
   transform: rotateY(180deg);
 }
 
@@ -240,7 +233,7 @@ section {
   margin-bottom: 60px;
 }
 
-section img:not(.imagem-introducao) {
+section img:not(.intro-image) {
   display: block;
   margin: 0 auto 20px auto;
   max-width: 90%;
@@ -248,12 +241,12 @@ section img:not(.imagem-introducao) {
 }
 
 /* -------- TIMELINE -------- */
-#secao-linha-do-tempo {
+#timeline-section {
   text-align: center;
   margin: 40px auto;
 }
 
-#controle-ano {
+#year-slider {
   width: 100%;
   height: 8px;
   -webkit-appearance: none;
@@ -264,7 +257,7 @@ section img:not(.imagem-introducao) {
   margin-top: 8px;
 }
 
-#controle-ano::-webkit-slider-thumb {
+#year-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 20px;
   height: 20px;
@@ -275,7 +268,7 @@ section img:not(.imagem-introducao) {
   transition: background 0.2s ease;
 }
 
-#controle-ano::-moz-range-thumb {
+#year-slider::-moz-range-thumb {
   width: 20px;
   height: 20px;
   background: #fff;
@@ -284,14 +277,14 @@ section img:not(.imagem-introducao) {
   cursor: pointer;
 }
 
-#rotulo-ano {
+#year-label {
   margin-top: 10px;
   font-size: 18px;
   color: rgb(165, 210, 210);
   font-weight: bold;
 }
 
-#painel-info {
+#info-panel {
   position: relative;
   margin: 20px auto;
   max-width: 300px;
@@ -303,11 +296,11 @@ section img:not(.imagem-introducao) {
   color: white;
 }
 
-#painel-info p {
+#info-panel p {
   margin: 5px 0;
 }
 
-.imagem-linha-do-tempo-pequena {
+.timeline-image-small {
   display: block;
   margin: 15px auto 25px auto;
   width: 300px;
