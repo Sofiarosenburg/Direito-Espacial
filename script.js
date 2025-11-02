@@ -1,76 +1,265 @@
-// script.js
+/* style.css */
 
-//aqui a gente pega os elementos principais do site
-const controleAno = document.getElementById('controle-ano');
-const valorAno = document.getElementById('valor-ano');
-const contagemSatelites = document.getElementById('contagem-satelites');
-const contagemDetritos = document.getElementById('contagem-detritos');
+/*estilo geral do corpo do site */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #0a0f2c; /* azul bem escuro, pra dar clima espacial */
+  color: white;
+  text-align: center;
+}
 
-const botoesTratado = document.querySelectorAll('.botoes-tratado button');
-const conteudosTratado = document.querySelectorAll('.conteudo-tratado');
-const cartoes = document.querySelectorAll('.cartao');
+/*cabeçalho e introdução */
+header {
+  background: linear-gradient(180deg, #13215b, #0a0f2c);
+  padding: 60px 20px;
+}
 
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
 
-// 🚀 Funções pra calcular número de satélites e detritos com base no ano escolhido
-function obterContagemSatelites(ano) {
-  if (ano < 1990) {
-    return Math.floor(50 + (ano - 1960) * 15);
-  } else if (ano < 2010) {
-    return Math.floor(500 + (ano - 1990) * 175);
-  } else if (ano <= 2025) {
-    return Math.floor(4000 + (ano - 2010) * 600);
-  } else {
-    return Math.floor(13100 + (ano - 2025) * 1000);
+header p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #ddd;
+}
+
+/* seção de introdução (o que é o direito espacial) */
+#introducao {
+  padding: 60px 20px;
+  background-color: #10194a;
+}
+
+#introducao h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.introducao-conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.introducao-conteudo img {
+  width: 300px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.introducao-conteudo p {
+  max-width: 700px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* tratados espaciais */
+#tratados {
+  background-color: #0a0f2c;
+  padding: 60px 20px;
+}
+
+#tratados h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+#clique-ver-detalhes {
+  font-size: 1rem;
+  color: #bbb;
+  margin-bottom: 20px;
+}
+
+/* botões dos tratados */
+.botoes-tratado {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.botoes-tratado button {
+  background-color: #21308f;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.botoes-tratado button:hover {
+  background-color: #2d44c4;
+}
+
+/* conteúdo que aparece ao clicar */
+.conteudo-tratado {
+  display: none;
+  background-color: #18236b;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 700px;
+  border-radius: 15px;
+  animation: aparecer 0.6s ease;
+}
+
+.conteudo-tratado h3 {
+  margin-bottom: 10px;
+}
+
+.conteudo-tratado p {
+  color: #ddd;
+}
+
+/* classe usada pra esconder o conteúdo */
+.escondido {
+  display: none;
+}
+
+/* animação leve pra aparecer o texto */
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* falhas e desafios */
+#falhas {
+  background-color: #10194a;
+  padding: 60px 20px;
+}
+
+#falhas img {
+  width: 400px;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+
+/* curiosidades */
+#curiosidades {
+  background-color: #0a0f2c;
+  padding: 60px 20px;
+}
+
+#curiosidades h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.container-cartoes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.cartao {
+  width: 220px;
+  height: 160px;
+  perspective: 1000px; /* dá o efeito 3D pro flip */
+  cursor: pointer;
+}
+
+.frente-cartao, .verso-cartao {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background-color: #21308f;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 0.6s;
+}
+
+.verso-cartao {
+  background-color: #2d44c4;
+  transform: rotateY(180deg);
+}
+
+/* quando o cartão vira */
+.cartao.virado .frente-cartao {
+  transform: rotateY(180deg);
+}
+
+.cartao.virado .verso-cartao {
+  transform: rotateY(360deg);
+}
+
+/* linha do tempo de satélites e detritos */
+#detritos {
+  background-color: #10194a;
+  padding: 60px 20px;
+}
+
+#detritos h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.imagem-linha-tempo-pequena {
+  width: 250px;
+  display: block;
+  margin: 20px auto;
+}
+
+#controle-ano {
+  width: 60%;
+  margin: 20px 0;
+}
+
+#painel-info {
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+/* rodapé / Final */
+#final {
+  background-color: #0a0f2c;
+  padding: 60px 20px;
+}
+
+.secao-final {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.secao-final h3 {
+  margin-top: 40px;
+  font-weight: normal;
+  color: #9aa3ff;
+}
+
+/* Responsividade pra telas menores */
+@media (max-width: 768px) {
+  .introducao-conteudo {
+    flex-direction: column;
+  }
+
+  .introducao-conteudo img {
+    width: 80%;
+  }
+
+  #falhas img {
+    width: 80%;
+  }
+
+  .container-cartoes {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #controle-ano {
+    width: 90%;
   }
 }
-
-function obterContagemDetritos(ano) {
-  if (ano < 1990) {
-    return Math.floor(100 + (ano - 1960) * 30);
-  } else if (ano < 2010) {
-    return Math.floor(1000 + (ano - 1990) * 500);
-  } else if (ano <= 2025) {
-    let anosDepois2010 = ano - 2010;
-    return Math.floor(11000 * Math.pow(1.08, anosDepois2010));
-  } else {
-    let anosDepois2025 = ano - 2025;
-    return Math.floor(36000 + anosDepois2025 * 500);
-  }
-}
-
-
-// atualiza os números quando o usuário mexe no controle de ano
-controleAno.addEventListener('input', () => {
-  const ano = +controleAno.value;
-  valorAno.textContent = ano;
-  contagemSatelites.textContent = obterContagemSatelites(ano);
-  contagemDetritos.textContent = obterContagemDetritos(ano);
-});
-
-
-// alterna os tratados (mostra/oculta o texto de cada um)
-function alternarTratado(idTratado) {
-  conteudosTratado.forEach(conteudo => {
-    if (conteudo.id === idTratado) {
-      conteudo.classList.toggle('escondido');
-    } else {
-      conteudo.classList.add('escondido');
-    }
-  });
-}
-
-// adiciona evento de clique pros botões dos tratados
-botoesTratado.forEach(botao => {
-  botao.addEventListener('click', () => {
-    const id = botao.getAttribute('data-tratado');
-    alternarTratado(id);
-  });
-});
-
-
-// cartões de curiosidades (viram quando clica)
-cartoes.forEach(cartao => {
-  cartao.addEventListener('click', () => {
-    cartao.classList.toggle('virado');
-  });
-});
