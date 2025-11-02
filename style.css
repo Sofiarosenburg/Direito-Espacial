@@ -1,335 +1,276 @@
-/* -------- RESET E BASE -------- */
+/* -------- base -------- */
+/*preciso ver se esse reset tá certo mesmo kk*/
 * {
-  margin: 0;
+  
+  margin: 0 ;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing:  border-box;
 }
 
 html, body {
   height: 100%;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0a192f;
-  color: #e6f1ff;
+  
+  font-family:   'Arial', Tahoma, sans-serif;
+  background-color: #0a192f ;
+  color:  #e6f1ff;
   line-height: 1.6;
+  
   padding: 20px;
   overflow-y: auto;
   position: relative;
+  
+
 }
 
-/* -------- CABEÇALHO -------- */
-header {
-  text-align: center;
-  margin-bottom: 40px;
+/* -------- la em cima -------- */
+header   {
+  text-align: center  ;
+  margin-bottom: 35px ; /* mudei de 40 pra 35 pq achei mais bonito */
 }
 header h1 {
-  font-size: 2.5rem;
-  color: #90cfcf;
+font-size:  2.4rem;
+  color:  #90cfcf;
 }
-header p {
-  color: #8892b0;
-  font-size: 1.2rem;
+header p   {
+  color: #99a3c0;
+  font-size: 1.15rem;
+
 }
 
-/* -------- TÍTULOS -------- */
-h2 {
-  font-size: 2rem;
+/* -------- titulo -------- */
+   h2  {
+  font-size: 1.9rem;
   color: #90cfcf;
-  margin-bottom: 20px;
-  text-align: center;
-  position: relative;
+  margin-bottom:   18px;
+  text-align: center ;
 }
-h2::before {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 4px;
-  background: #90cfcf;
-  margin: 0 auto 10px;
-  border-radius: 2px;
-}
-h3 {
+
+
+h3   {
   color: #e6f1ff;
-  font-size: 1.5rem;
-  margin-top: 25px;
+  font-size: 1.4rem ;
+  margin-top:  20px;
   text-align: center;
-}
+  }
 
-/* -------- INTRODUÇÃO -------- */
-.intro-content {
+/* -------- intro -------- */
+  .conteudo-intro  {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 20px;
-  margin-bottom: 40px;
-  animation: fadeInUp 1s ease;
-  text-align: left;
+  align-items:  center;
+  gap: 18px ;
+  margin-bottom: 35px;
+text-align: left ;
+  animation: aparecerDeBaixo 1s ease;
 }
 
-.intro-image, .failures-image {
-  width: 300px;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(100, 255, 218, 0.2);
-  flex-shrink: 0;
-  margin: 0;
+.imagem-introducao {
+  width:   280px;
+  border-radius: 10px  ;
+  box-shadow: 0 4px 20px rgba(100, 255, 218, 0.2) ;
 }
 
-.intro-content p {
-  flex: 1;
-  font-size: 1.1rem;
+.conteudo-intro  p   {
+  font-size: 1.08rem;
+  
   line-height: 1.5;
   color: #cbd5e1;
-  max-width: 800px;
-  margin: 0;
+  
+  max-width: 750px;
 }
 
-/* -------- ANIMAÇÕES GERAIS -------- */
-@keyframes fadeInUp {
+/* -------- ANIMAÇÕES -------- */
+@keyframes   aparecerDeBaixo  {
   from {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(30px);
   }
+  
   to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1  ;
+    transform:  translateY(0);
   }
 }
 
-/* -------- TRATADOS INTERATIVOS -------- */
-.treaty-block {
-  position: relative;
-  z-index: 5;
+/* -------- tratados -------- */
+ .botoes-tratados      {
+  display:  flex ;
+  justify-content:   center ;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 25px 0;
 }
 
-.treaty-block h3 {
+.botoes-tratados button
+{
+  background-color: #2d3250;
+  color: #fff;
+  border: none ;
+  
+  padding: 13px 20px ;
+  border-radius: 10px;
+  font-size: 15px;
   cursor: pointer;
-  background-color: #1c2230;
-  padding: 12px 20px;
-  border-radius: 8px;
-  color: #90cfcf;
-  margin-top: 15px;
-  transition: background 0.3s ease;
-  pointer-events: auto;
+font-weight: bold;
+  transition: transform 0.2s ease, background 0.3s;
+  
 }
-.treaty-block h3:hover {
-  background-color: #243049;
+
+
+ .botoes-tratados button:hover {
+    background-color: #3c4070 ;
+    transform: scale(1.05);
 }
-.treaty-content {
-  background-color: #2a3448;
-  color: #e6f1ff;
-  padding: 15px 20px;
+
+ #texto-ver-detalhes    {
+  text-align: center;
+  color: #ccc;
+  margin-bottom: 10px;
+  
+}
+
+/* -------- a fala mesmo -------- */
+
+ .conteudo-tratado {
+background-color: #2a3448  ;
+color: #fff ;
+  padding: 14px 18px;
   border-left: 4px solid #90cfcf;
   border-radius: 8px;
-  margin-top: 8px;
+  max-width: 800px;
+  margin: 0 auto 15px;
   animation: fadeIn 0.4s ease;
 }
-.hidden {
+
+
+.escondido {
   display: none;
 }
 
-/* -------- CARDS FUN FACTS -------- */
-.card-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 30px;
-}
-.card {
-  width: 200px;
-  height: 120px;
-  perspective: 1000px;
-  cursor: pointer;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.6s ease;
-}
-.card-front,
-.card-back {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  border-radius: 10px;
-  backface-visibility: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 1rem;
-  padding: 10px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-}
-.card-front {
-  background-color: #3f3d56;
-  color: #ffffff;
-}
-.card-back {
-  background-color: #90cfcf;
-  color: #0a192f;
-  transform: rotateY(180deg);
-}
-.card.flipped {
-  transform: rotateY(180deg);
+@keyframes   fadeIn  {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0);   }
+ }
+
+/* -------- LINHA DO TEMPO -------- */
+#linha-do-tempo  {
+  margin-top: 50px;
+  text-align: center  ;
 }
 
-/* -------- PARÁGRAFOS -------- */
-p {
-  margin-top: 10px;
-  font-size: 1.05rem;
-  color: #cbd5e1;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
 
-/* -------- SEÇÕES -------- */
-section {
-  margin-bottom: 60px;
-}
 
-section img:not(.intro-image) {
-  display: block;
-  margin: 0 auto 20px auto;
-  max-width: 90%;
-  height: auto;
-}
-
-/* -------- Outras classes e correções -------- */
-.intro-image {
-  display: inline-block;
-}
-
-.intro-image.center-image {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.treaty-buttons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin: 30px 0;
-}
-
-.treaty-buttons button {
-  background-color: #3a3758;
-  color: #ffffff;
-  border: none;
-  padding: 14px 22px;
-  border-radius: 14px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease, background-color 0.3s ease;
-}
-
-.treaty-buttons button:hover {
-  background-color: #4a4478;
-  transform: scale(1.05);
-}
-
-#click-to-see-details {
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: white;
-}
-
-.treaty-title {
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: white;
-  margin-bottom: 0.5rem;
-}
-
-/* -------- CONTEÚDO FIXO E ROLAGEM -------- */
-
-#timeline-container {
-  position: relative;
-  margin: 40px auto 60px auto;
+#controle-linha {
   width: 70%;
-  text-align: center;
-  color: white;
-  z-index: 10;
-  pointer-events: auto;
+  margin: 0 auto 15px auto;
 }
 
-#year-slider {
-  width: 100%;
+#controle-ano    {
+  width: 100% ;
   height: 8px;
-  -webkit-appearance: none;
-  background: #003366; /* cor sólida azul escuro, sem degradê */
-  border-radius: 5px;
+  background: #003366; /* cor azul escuro */
+  border-radius: 5px  ;
+  cursor: pointer;
   outline: none;
-  cursor: pointer;
-  margin-top: 8px;
 }
 
-#year-slider::-webkit-slider-thumb {
+
+#controle-ano::-webkit-slider-thumb {
   -webkit-appearance: none;
+  
   width: 20px;
   height: 20px;
   background: #fff;
+ 
   border: 2px solid #00f;
   border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.2s ease;
 }
 
-#year-slider::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
-  background: #fff;
-  border: 2px solid #00f;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-#year-label {
-  margin-top: 10px;
+#rotulo-ano {
+  
   font-size: 18px;
-  color: rgb(165, 210, 210);
+    color: rgb(165, 210, 210);
+  margin-top: 8px;
   font-weight: bold;
 }
 
-#info-panel {
-  position: relative; 
-  margin: 20px auto;
-  max-width: 300px; 
-  background: rgba(0, 0, 0, 0.6);
+/* painel de info */
+#painel-info 
+
+{
+    background: rgba(0, 0, 0, 0.6);
   padding: 12px 20px;
   border-radius: 10px;
   font-size: 16px;
   box-shadow: 0 0 10px rgb(165, 210, 210);
+  
   color: white;
+  max-width: 320px;
+  margin: 15px auto;
+  
 }
 
-#info-panel p {
-  margin: 5px 0;
+/* -------- cartaoo -------- */
+
+.container-cartoes {
+  display: flex;
+justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 25px;
+  
 }
 
-.timeline-image-small {
-  display: block;
-  margin: 15px auto 25px auto;
-  width: 300px;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: none;
+.cartao { /*pq n ta mudando?? arrumar!*/
+   width: 200px;
+  
+   height: 120px;
+  position: relative;
+  perspective: 1000px;
+  cursor: pointer;
+  transition: transform 0.6s ease;
 }
 
+.frente-cartao, .verso-cartao
+{
+  width: 100%;
+  height: 100%;
+  
+position: absolute;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center; /*n ta no meio */
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
 
+.frente-cartao {
+  background-color: #3f3d56;
+  
+  color: #fff;
+}
+
+  .verso-cartao {
+   background-color: #90cfcf;
+  color: #0a192f;
+  transform: rotateY(180deg);
+  
+}
+
+.cartao.virado {
+   transform: rotateY(180deg);
+
+}
+
+/* -------- RODAPÉ -------- */
+#rodape {
+  
+margin-top: 60px;
+text-align: center;
+  font-size: 0.95rem;
+  color: #aabbd5;
+}
+
+/* acho que tá tudo funcionandooo */
