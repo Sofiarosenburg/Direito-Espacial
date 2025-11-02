@@ -1,265 +1,231 @@
-/* style.css */
-
-/* estilo geral do corpo do site */
-body {
-  font-family: 'Poppins', sans-serif;
+/* -------- RESET E BASE -------- */
+* {
   margin: 0;
   padding: 0;
-  background-color: #0a0f2c; /* azul bem escuro, pra dar clima espacial */
-  color: white;
-  text-align: center;
+  box-sizing: border-box;
 }
 
-/* cabeçalho e introdução */
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0a192f;
+  color: #e6f1ff;
+  line-height: 1.6;
+  padding: 20px;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* -------- CABEÇALHO -------- */
 header {
-  background: linear-gradient(180deg, #13215b, #0a0f2c);
-  padding: 60px 20px;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 header h1 {
   font-size: 2.5rem;
-  margin-bottom: 20px;
+  color: #90cfcf;
 }
 
 header p {
+  color: #8892b0;
   font-size: 1.2rem;
-  max-width: 700px;
-  margin: 0 auto;
-  color: #ddd;
 }
 
-/* seção de introdução (o que é o direito espacial) */
-#introducao {
-  padding: 60px 20px;
-  background-color: #10194a;
-}
-
-#introducao h2 {
+/* -------- TÍTULOS -------- */
+h2 {
   font-size: 2rem;
-  margin-bottom: 40px;
+  color: #90cfcf;
+  margin-bottom: 20px;
+  text-align: center;
+  position: relative;
 }
 
+h2::before {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #90cfcf;
+  margin: 0 auto 10px;
+  border-radius: 2px;
+}
+
+h3 {
+  color: #e6f1ff;
+  font-size: 1.5rem;
+  margin-top: 25px;
+  text-align: center;
+}
+
+/* -------- INTRODUÇÃO -------- */
 .introducao-conteudo {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  gap: 20px;
   margin-bottom: 40px;
+  animation: aparecerParaCima 1s ease;
+  text-align: left;
 }
 
-.introducao-conteudo img {
+.imagem-introducao {
   width: 300px;
-  border-radius: 15px;
-  margin-bottom: 20px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(100, 255, 218, 0.2);
+  flex-shrink: 0;
 }
 
 .introducao-conteudo p {
-  max-width: 700px;
+  flex: 1;
   font-size: 1.1rem;
-  line-height: 1.6;
+  color: #cbd5e1;
+  max-width: 800px;
 }
 
-/* tratados espaciais */
-#tratados {
-  background-color: #0a0f2c;
-  padding: 60px 20px;
+/* -------- ANIMAÇÕES -------- */
+@keyframes aparecerParaCima {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-#tratados h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+/* -------- TRATADOS -------- */
+.bloco-tratado h3 {
+  cursor: pointer;
+  background-color: #1c2230;
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: #90cfcf;
+  transition: background 0.3s ease;
 }
 
-#clique-ver-detalhes {
-  font-size: 1rem;
-  color: #bbb;
-  margin-bottom: 20px;
+.bloco-tratado h3:hover {
+  background-color: #243049;
 }
 
-/* botões dos tratados */
+.conteudo-tratado {
+  background-color: #2a3448;
+  padding: 15px 20px;
+  border-left: 4px solid #90cfcf;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+.oculto {
+  display: none;
+}
+
+/* -------- BOTÕES DE TRATADOS -------- */
 .botoes-tratado {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 30px 0;
 }
 
 .botoes-tratado button {
-  background-color: #21308f;
+  background-color: #3a3758;
+  color: #ffffff;
   border: none;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 10px;
+  padding: 14px 22px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
 .botoes-tratado button:hover {
-  background-color: #2d44c4;
+  background-color: #4a4478;
+  transform: scale(1.05);
 }
 
-/* conteúdo que aparece ao clicar */
-.conteudo-tratado {
-  display: none;
-  background-color: #18236b;
+/* -------- CONTROLE DE ANO -------- */
+#container-linha-tempo {
+  text-align: center;
+  color: white;
+}
+
+#controle-ano {
+  width: 70%;
+  height: 8px;
+  background: #003366;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+}
+
+#rotulo-ano {
+  margin-top: 10px;
+  font-size: 18px;
+  color: rgb(165, 210, 210);
+  font-weight: bold;
+}
+
+/* -------- PAINEL DE INFORMAÇÕES -------- */
+#painel-info {
   margin: 20px auto;
-  padding: 20px;
-  max-width: 700px;
-  border-radius: 15px;
-  animation: aparecer 0.6s ease;
+  max-width: 300px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  box-shadow: 0 0 10px rgb(165, 210, 210);
+  color: white;
 }
 
-.conteudo-tratado h3 {
-  margin-bottom: 10px;
-}
-
-.conteudo-tratado p {
-  color: #ddd;
-}
-
-/* classe usada pra esconder o conteúdo */
-.escondido {
-  display: none;
-}
-
-/* animação leve pra aparecer o texto */
-@keyframes aparecer {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* falhas e desafios */
-#falhas {
-  background-color: #10194a;
-  padding: 60px 20px;
-}
-
-#falhas img {
-  width: 400px;
-  margin-top: 20px;
-  border-radius: 20px;
-}
-
-/* curiosidades */
-#curiosidades {
-  background-color: #0a0f2c;
-  padding: 60px 20px;
-}
-
-#curiosidades h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
+/* -------- CARTÕES DE CURIOSIDADES -------- */
 .container-cartoes {
   display: flex;
   justify-content: center;
+  gap: 20px;
   flex-wrap: wrap;
-  gap: 30px;
+  margin-top: 30px;
 }
 
 .cartao {
-  width: 220px;
-  height: 160px;
-  perspective: 1000px; /* dá o efeito 3D pro flip */
+  width: 200px;
+  height: 120px;
+  perspective: 1000px;
   cursor: pointer;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
 }
 
 .frente-cartao, .verso-cartao {
   width: 100%;
   height: 100%;
-  border-radius: 15px;
-  background-color: #21308f;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
   position: absolute;
+  border-radius: 10px;
   backface-visibility: hidden;
-  transition: transform 0.6s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 10px;
+}
+
+.frente-cartao {
+  background-color: #3f3d56;
+  color: #ffffff;
 }
 
 .verso-cartao {
-  background-color: #2d44c4;
+  background-color: #90cfcf;
+  color: #0a192f;
   transform: rotateY(180deg);
 }
 
-/* quando o cartão vira */
-.cartao.virado .frente-cartao {
+.cartao.virado {
   transform: rotateY(180deg);
-}
-
-.cartao.virado .verso-cartao {
-  transform: rotateY(360deg);
-}
-
-/* 📈 Linha do tempo de satélites e detritos */
-#detritos {
-  background-color: #10194a;
-  padding: 60px 20px;
-}
-
-#detritos h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-.imagem-linha-tempo-pequena {
-  width: 250px;
-  display: block;
-  margin: 20px auto;
-}
-
-#controle-ano {
-  width: 60%;
-  margin: 20px 0;
-}
-
-#painel-info {
-  margin-top: 20px;
-  font-size: 1.2rem;
-}
-
-/* rodapé / Final */
-#final {
-  background-color: #0a0f2c;
-  padding: 60px 20px;
-}
-
-.secao-final {
-  max-width: 700px;
-  margin: 0 auto;
-  font-size: 1rem;
-  color: #ccc;
-}
-
-.secao-final h3 {
-  margin-top: 40px;
-  font-weight: normal;
-  color: #9aa3ff;
-}
-
-/* Responsividade pra telas menores */
-@media (max-width: 768px) {
-  .introducao-conteudo {
-    flex-direction: column;
-  }
-
-  .introducao-conteudo img {
-    width: 80%;
-  }
-
-  #falhas img {
-    width: 80%;
-  }
-
-  .container-cartoes {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #controle-ano {
-    width: 90%;
-  }
 }
