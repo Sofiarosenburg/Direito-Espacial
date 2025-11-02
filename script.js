@@ -1,77 +1,86 @@
-// script.js
-// tentei deixar o código mais organizado, mas ainda tem uns detalhes pra revisar depois
+// -------- TRATADOS --------
+// mostra ou esconde os textos dos tratados espaciais
 
-// ---- botoes ---- //
+const botoesTratados = document.querySelectorAll('.botoes-tratados button');
+const conteudosTratado = document.querySelectorAll('.conteudo-tratado');
 
-const botoes = document.querySelectorAll('.botoes-tratados button') ;
-const tratados = document.querySelectorAll ('.conteudo-tratado');
+botoesTratados.forEach(botao => {
+  botao.addEventListener('click', () => {
+    const alvo = botao.getAttribute('data-tratado');
 
-//mostrar um tratado de cada vez
- botoes.forEach((botao) => {
-   
-  botao.addEventListener('click', () =>   {
-    const idTratado = botao.getAttribute ('data-tratado');
-    
-    tratados.forEach((t) => {
-      if (t.id === idTratado) {
-        t.classList.toggle('escondido'); // alterna visibilidade
+    conteudosTratado.forEach(secao => {
+      if (secao.id === alvo) {
+        secao.classList.toggle('escondido'); // alterna visibilidade
       } else {
-        t.classList.add('escondido');
-      
+        secao.classList.add('escondido');
       }
-     });
+    });
   });
- });
+});
 
-// ---- tinha do tempo ---- // 
 
- const controleAno = document.getElementById('controle-ano') ;
+// -------- LINHA DO TEMPO ESPACIAL --------
+// fiz uma lista com os principais acontecimentos do direito espacial (acho que ficou bom)
+
+const controleAno = document.getElementById('controle-ano');
 const rotuloAno = document.getElementById('rotulo-ano');
 const painelInfo = document.getElementById('painel-info');
 
-  //  lista de marcos históricos (ver as datas) 
-const eventosEspaciais  =
-{
-  1957: 'URSS lança o Sputnik, o primeiro satélite artificial da Terra.',
-  1961: 'Yuri Gagarin torna-se o primeiro humano a viajar ao espaço.',
-  1967: 'Tratado do Espaço Exterior é assinado, base do Direito Espacial.',
-  1979: 'Convenção da Lua define regras sobre recursos lunares.',
-  1984: 'Acordo sobre atividades de estados na Lua (poucos países assinaram).',
-  1998: 'Estação Espacial Internacional começa a ser montada.',
-  2015: 'EUA aprovam lei sobre mineração de asteroides.'
+// eventos históricos espaciais
+const eventosEspaciais = {
+  1957: "URSS lança o Sputnik 1 — o primeiro satélite artificial da Terra.",
+  1961: "Yuri Gagarin torna-se o primeiro ser humano a ir ao espaço.",
+  1967: "Assinado o Tratado do Espaço Exterior — base do Direito Espacial.",
+  1972: "Convenção de Responsabilidade define regras sobre danos espaciais.",
+  1975: "Convenção de Registro obriga países a registrarem seus satélites.",
+  1979: "Acordo da Lua tenta regular recursos lunares (poucos assinaram).",
+  1998: "Montagem da Estação Espacial Internacional começa.",
+  2015: "EUA aprovam lei permitindo exploração de recursos de asteroides.",
+  2025: "Cresce o debate sobre propriedade privada no espaço e lixo orbital."
 };
 
-// valor inicial (usei 1967 porque é o mais importante)
+// valor inicial
+controleAno.value = 1967;
+rotuloAno.textContent = "Ano: 1967";
+painelInfo.textContent = eventosEspaciais[1967];
 
-controleAno.value  = 1967;
-rotuloAno.textContent = 'Ano: 1967'  ;
- painelInfo.textContent  = eventosEspaciais[1967];
-
-// atualiza o painel quando move
-
-    controleAno.addEventListener ('input', function() {
+// atualiza quando o usuário mexe
+controleAno.addEventListener('input', function () {
   const ano = this.value;
-  rotuloAno.textContent = 'Ano: ' + ano;
+  rotuloAno.textContent = "Ano: " + ano;
+
   if (eventosEspaciais[ano]) {
     painelInfo.textContent = eventosEspaciais[ano];
   } else {
-    
-    painelInfo.textContent = 'Sem registro importante nesse ano (acho)';
+    painelInfo.textContent = "Nenhum registro espacial marcante nesse ano (acho rs)";
   }
 });
 
-// ---- curiosidade  ---- //
 
-const cartoes  = document.querySelectorAll('.cartao');
+// -------- CARTÕES --------
+// virar o cartão ao clicar (achei divertido isso)
 
-// virar o cartão quando clicar
-cartoes.forEach((cartao) => {
+const cartoes = document.querySelectorAll('.cartao');
+
+cartoes.forEach(cartao => {
   cartao.addEventListener('click', () => {
     cartao.classList.toggle('virado');
-  
   });
-  
 });
 
-// às vezes o botão de tratado some rápido demais, talvez mexer nisso depois
-// mas tá bom assim por enquanto
+
+// -------- SCROLL SUAVE (não tava no original, mas deixei pq fica chique) --------
+const linksSuaves = document.querySelectorAll('a[href^="#"]');
+linksSuaves.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const destino = document.querySelector(link.getAttribute('href'));
+    if (destino) {
+      destino.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+
+// -------- teste no console --------
+console.log("🚀 Site do Direito Espacial carregado certinho (ufa)");
